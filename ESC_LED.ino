@@ -1,10 +1,10 @@
 #include <Adafruit_NeoPixel.h>
 #define PIXEL_PIN    12    // Digital IO pin connected to the NeoPixels.
-#define PIXEL_COUNT 24
+#define PIXEL_COUNT 5
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
 
 #define BRAKE_PIN A5
-#define THROTTLE_PIN A6
+#define THROTTLE_PIN A4
 
 void setup() {
   // put your setup code here, to run once:
