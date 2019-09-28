@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
 #define PIXEL_PIN    12    // Digital IO pin connected to the NeoPixels.
-#define PIXEL_COUNT 5
+#define PIXEL_COUNT 24
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
 
 #define BRAKE_PIN A5
@@ -19,17 +19,17 @@ void setup() {
 
 void loop() {
 
-  // brake on
   if (analogRead(THROTTLE_PIN) < 100) {
     strip.clear();
     strip.show();
-
     return;
   }
+
+  // brake on
   if (digitalRead(BRAKE_PIN) == LOW) {
-    colorAll(strip.Color(127,   0,   0), map(analogRead(THROTTLE_PIN), 0, 1023, 0, 255));
+    colorAll(strip.Color(255,   0,   0), map(analogRead(THROTTLE_PIN), 0, 1023, 0, 255));
   } else {
-    colorAll(strip.Color(0,   127,   127), map(analogRead(THROTTLE_PIN), 0, 1023, 0, 255));
+    colorAll(strip.Color(0,   255,   255), map(analogRead(THROTTLE_PIN), 0, 1023, 0, 255));
   }
 
   Serial.print(digitalRead(BRAKE_PIN));
